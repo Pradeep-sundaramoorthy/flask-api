@@ -13,22 +13,22 @@
             <div class="container">
                 <div class="row">
                     <div class ="col-sm"> 
-                        <input type = "text" id ="cityName" name = "cityName" placeholder = "cityName"
-                        class="form-control">
+                        <input type = "text" id ="city" name = "city" placeholder = "city" value = "{{data.city}}"
+                        class="form-control" required>
                     </div>
                      
                     <div class ="col-sm">
-                        <input type = "text" id = "countryName" name = "countryName" placeholder = "country"
-                        class="form-control">
+                        <input type = "text" id = "country" name = "country" placeholder = "country" value = "{{data.country}}"
+                        class="form-control" required>
                     </div>
                 </div>
             </div><br>
             <button class="btn btn-dark">Find</button>
         </form>
-        {% if data %}
-        {{data.main}}: {{ data.description }}
-        {{data.temperature}} C
-        <img src="https://openweathermap.org/img/wn/{{data.icon}}@2x.png" alt = "Icon"> 
+        {% if data.weather_data %}
+        The weather in {{data.city}}, {{data.country}} is: {{ data.weather_data.description }}
+        {{data.weather_data.temperature}} C
+        <img src="https://openweathermap.org/img/wn/{{data.weather_data.icon}}@2x.png" alt = "Icon"> 
         {% endif %}
     </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

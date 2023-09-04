@@ -7,9 +7,15 @@ app = Flask(__name__)
 def index():
     data = None
     if request.method == 'POST':
-        city = request.form['cityName']
-        country = request.form['countryName']
-        data = get_weather(city,country)
+        city = request.form['city']
+        country = request.form['country']
+        if city and country:
+            weather_data = get_weather(city,country)
+            data = {
+                "weather_data" : weather_data,
+                "city": city,
+                "country" : country
+            }
     return render_template('index.html',data = data)    
 
 if __name__ == '__main__':
