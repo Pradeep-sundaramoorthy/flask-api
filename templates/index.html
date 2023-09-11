@@ -25,11 +25,15 @@
             </div><br>
             <button class="btn btn-dark">Find</button>
         </form>
-        {% if data.weather_data %}
-        The weather in {{data.city}}, {{data.country}} is: {{ data.weather_data.description }}
+        {%if data.weather_data.error %}<br>
+        <p style="color:firebrick;font-size:large;"> {{ data.weather_data.error }}</p>
+        {% elif data.weather_data %}
+        weather in {{data.city}}, {{data.country}} is: {{ data.weather_data.description }}
         {{data.weather_data.temperature}} C
         <img src="https://openweathermap.org/img/wn/{{data.weather_data.icon}}@2x.png" alt = "Icon"> 
+        
         {% endif %}
+
     </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
