@@ -25,7 +25,7 @@
             </div><br>
             <button class="btn btn-dark">Find</button>
         </form>
-        {%if data.weather_data.error %}<br>
+        {%if data.weather_data and data.weather_data.error %}<br>
         <p style="color:firebrick;font-size:large;"> {{ data.weather_data.error }}</p>
         {% elif data.weather_data %}
         weather in {{data.city}}, {{data.country}} is: {{ data.weather_data.description }}
